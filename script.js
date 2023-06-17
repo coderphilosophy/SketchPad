@@ -8,7 +8,7 @@ let gridDimensions = document.querySelector('.gridDimensions');
 
 
 let gridSize = 10;
-let length = 500 / gridSize;
+let length = 750 / gridSize;
 let colourChoice = 'blue';
 let mouse = false;
 let currentSize = gridSize;
@@ -23,7 +23,7 @@ reset.onclick = () => resetGrid();
 
 input.addEventListener('input', function(e){
     gridSize = e.target.value;
-    length = 500 / gridSize;
+    length = 750 / gridSize;
     currentSize = gridSize;
     gridDimensions.textContent = `${gridSize} x ${gridSize}`;
     clearGrid();
@@ -72,11 +72,11 @@ function createGrid(gridSize, length){
     for(let i = 0; i < gridSize*gridSize; i++){
         let content = document.createElement('div');
         content.classList.add('gridElement');
-        content.style.backgroundColor = "black";
+        content.style.backgroundColor = "#FFF5E4";
         content.style.boxSizing = "border-box";
         content.style.height = length + "px";
         content.style.width = length + "px";
-        content.style.border = "1px solid red";
+        //content.style.border = "1px solid #850E35";
 
         content.addEventListener('mouseover', changeColor);
         grid.appendChild(content);
@@ -90,15 +90,15 @@ function clearGrid(){
 
 function resetGrid(){
     clearGrid();
-    createGrid(currentSize, 500/currentSize);
+    createGrid(currentSize, 750/currentSize);
 }
 
 function changeColor(e){
     if(mouse && colourChoice == 'blue'){
-        e.target.style.backgroundColor = "blue";
+        e.target.style.backgroundColor = "black";
     }
     else if(mouse && colourChoice == 'erase'){
-        e.target.style.backgroundColor = "black";
+        e.target.style.backgroundColor = "#FFF5E4";
     }
     else if(mouse && colourChoice == 'rainbow'){
         let r = Math.floor(Math.random() * 256);
@@ -110,7 +110,7 @@ function changeColor(e){
 }
 
 window.onload = () => {
-    createGrid(10, 50);
+    createGrid(10, 75);
     gridDimensions.textContent = `${gridSize} x ${gridSize}`;
 }
 

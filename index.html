@@ -7,16 +7,26 @@
     <title>Sketch Pad</title>
     <script src = "script.js" defer></script>
     <link rel = "stylesheet" href = "style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>SKETCH PAD</h1>
-    <button class = "blue active">BLUE</button>
-    <button class = "reset">RESET</button>
-    <button class = "erase">ERASE</button>
-    <button class = "rainbow">RAINBOW</button>
-
-    <div class = "grid"></div>
-    <input class = "input" type = "range" min = "1" max = "64" step = "1" value = "10">
-    <p class = "gridDimensions"></p>
+    <div class = "sketchpad">
+        <div class = "content">
+            <button class = "blue active">BLACK</button>
+            <button class = "erase">ERASE</button>
+            <button class = "rainbow">RAINBOW</button>
+            <button class = "reset">RESET</button>
+            <div class = "sliderdiv">
+                <input class = "input" type = "range" min = "1" max = "64" step = "1" value = "10">
+                <p class = "gridDimensions"></p>
+            </div>
+        </div>
+        <div class = "grid"></div>
+    </div>
 </body>
 </html>

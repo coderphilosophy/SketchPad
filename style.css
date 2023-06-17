@@ -1,11 +1,62 @@
+body{
+    background-color: #FFC4C4;
+    color: #850E35;
+}
+
+button{
+    background-color: #EE6983;
+    color: #850E35;
+    padding: 10px 20px;
+    border: 1px solid #850E35;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px #850E35;
+
+    font-family: 'Varela Round', sans-serif;
+    
+}
+
+button:hover{
+    background-color: #FFF5E4;
+}
+
 .grid{
-    height: 500px;
-    width: 500px;
+    height: 750px;
+    width: 750px;
     display: flex;
     flex-wrap: wrap;
-    border: 5px solid black;
+    border: 5px solid #850E35;
+    box-shadow: 0px 0px 10px #850E35;
 }
 
 .active{
-    background-color: aquamarine;
+    background-color: #FFF5E4;
 }
+
+.sketchpad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.grid{
+    flex-shrink: 0;
+}
+
+p{
+    text-align: center;
+    margin: 0;
+}
+
+h1{
+    font-size: 56px;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+}
+
