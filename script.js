@@ -1,99 +1,33 @@
-/*let grid = document.querySelector('.grid');
-let reset = document.querySelector('.reset');
-let input = document.querySelector('.input');
-let erase = document.querySelector('.erase');
-let gridElement;
-
-let num = 10;
-let length = 500 / num;
-createGrid(num, length)
-
-input.addEventListener('input', function(e){
-    num = e.target.value;
-    length = 500 / num;
-    clearGrid();
-    createGrid(num, length);
-})
-
-function createGrid(num, length){
-    for(let i = 0; i < num; i++){
-        for(let j = 0; j < num; j++){
-            const content = document.createElement('div');
-            content.classList.add('gridElement');
-            content.style.backgroundColor = "black";
-            content.style.boxSizing = "border-box";
-            content.style.height = length + "px";
-            content.style.width = length + "px";
-            content.style.border = "1px solid red";
-            content.addEventListener('mouseover', changeColor);
-            grid.appendChild(content);
-            
-        }
-    }
-    gridElement =  document.querySelectorAll('.gridElement');
-    grid = document.querySelector('.grid');
-    console.log(gridElement[1]);
-}
-
-function clearGrid(){
-    grid.innerHTML = "";
-}
-
-let mouse = false;
-document.body.onmousedown = () => {mouse = true};
-document.body.onmouseup = () => {mouse = false};
-
-function changeColor(e){
-    console.log(e);
-    if(mouse){
-        e.target.style.backgroundColor = "blue";
-    }
-}
-
-/*
-gridElement.forEach((element) => {
-    element.addEventListener('mousemove', () => {
-        if(mouse){
-            element.style.backgroundColor = "blue";
-            console.log("mouse is pressed")
-        }
-    })
-})
-
-reset.addEventListener('click', resetGrid);
-
-function resetGrid(){
-    gridElement.forEach((element) => {
-        element.style.backgroundColor = "black";
-    })
-    mouse = false;
-}
-*/
-
-
 let grid = document.querySelector('.grid');
 let input = document.querySelector('.input');
 let blue = document.querySelector('.blue');
 let reset = document.querySelector('.reset');
 let erase = document.querySelector('.erase');
+let rainbow = document.querySelector('.rainbow');
+let gridDimensions = document.querySelector('.gridDimensions');
 
 
 let gridSize = 10;
 let length = 500 / gridSize;
 let colourChoice = 'blue';
 let mouse = false;
+let currentSize = gridSize;
 
 document.body.onmousedown = () => {mouse = true};
 document.body.onmouseup = () => {mouse = false};
 
 erase.onclick = () => setColourChoice('erase');
 blue.onclick = () => setColourChoice('blue');
+rainbow.onclick = () => setColourChoice('rainbow');
+reset.onclick = () => resetGrid();
 
 input.addEventListener('input', function(e){
-    num = e.target.value;
-    length = 500 / num;
+    gridSize = e.target.value;
+    length = 500 / gridSize;
+    currentSize = gridSize;
+    gridDimensions.textContent = `${gridSize} x ${gridSize}`;
     clearGrid();
-    createGrid(num, length);
+    createGrid(gridSize, length);
 })
 
 function setColourChoice(choice){
@@ -105,6 +39,10 @@ function setColourChoice(choice){
         selectButton('blue');
         colourChoice = 'blue';
     }
+    else if(choice == 'rainbow'){
+        selectButton('rainbow');
+        colourChoice = 'rainbow';
+    }
 }
 
 function selectButton(choice){
@@ -114,12 +52,18 @@ function selectButton(choice){
     else if(colourChoice == 'erase'){
         erase.classList.remove('active');
     }
+    else if(colourChoice == 'rainbow'){
+        rainbow.classList.remove('active');
+    }
 
     if(choice == 'blue'){
         blue.classList.add('active');
     }
     else if(choice == 'erase'){
         erase.classList.add('active');
+    }
+    else if(choice == 'rainbow'){
+        rainbow.classList.add('active');
     }
 }
 
@@ -144,17 +88,30 @@ function clearGrid(){
     grid.innerHTML = "";
 }
 
+function resetGrid(){
+    clearGrid();
+    createGrid(currentSize, 500/currentSize);
+}
+
 function changeColor(e){
     if(mouse && colourChoice == 'blue'){
         e.target.style.backgroundColor = "blue";
     }
-    if(mouse && colourChoice == 'erase'){
+    else if(mouse && colourChoice == 'erase'){
         e.target.style.backgroundColor = "black";
+    }
+    else if(mouse && colourChoice == 'rainbow'){
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+
+        e.target.style.backgroundColor = `rgb(${r}, ${g},${b})`;
     }
 }
 
 window.onload = () => {
     createGrid(10, 50);
+    gridDimensions.textContent = `${gridSize} x ${gridSize}`;
 }
 
 
