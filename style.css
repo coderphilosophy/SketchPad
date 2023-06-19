@@ -42,7 +42,7 @@ button:hover{
 .content{
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 90px;
 }
 
 .grid{
@@ -60,5 +60,12 @@ h1{
     font-family: 'Abril Fatface', cursive;
 }
 
-
+.color{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
 
