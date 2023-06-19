@@ -5,6 +5,7 @@ let reset = document.querySelector('.reset');
 let erase = document.querySelector('.erase');
 let rainbow = document.querySelector('.rainbow');
 let gridDimensions = document.querySelector('.gridDimensions');
+let color = document.querySelector('.color');
 
 
 let gridSize = 10;
@@ -12,6 +13,7 @@ let length = 750 / gridSize;
 let colourChoice = 'blue';
 let mouse = false;
 let currentSize = gridSize;
+let mycolour = "";
 
 document.body.onmousedown = () => {mouse = true};
 document.body.onmouseup = () => {mouse = false};
@@ -28,6 +30,12 @@ input.addEventListener('input', function(e){
     gridDimensions.textContent = `${gridSize} x ${gridSize}`;
     clearGrid();
     createGrid(gridSize, length);
+})
+
+color.addEventListener('input', function(e){
+    console.log(e.target.value);
+    colourChoice = "mycolor";
+    mycolour = e.target.value;
 })
 
 function setColourChoice(choice){
@@ -106,6 +114,9 @@ function changeColor(e){
         let b = Math.floor(Math.random() * 256);
 
         e.target.style.backgroundColor = `rgb(${r}, ${g},${b})`;
+    }
+    else if(mouse && colourChoice == "mycolor"){
+        e.target.style.backgroundColor = mycolour;
     }
 }
 
