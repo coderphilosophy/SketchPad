@@ -20,8 +20,8 @@ button:hover{
 }
 
 .grid{
-    height: 750px;
-    width: 750px;
+    height: 600px;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
     border: 5px solid #850E35;
@@ -42,7 +42,7 @@ button:hover{
 .content{
     display: flex;
     flex-direction: column;
-    gap: 90px;
+    gap: 70px;
 }
 
 .grid{
@@ -61,9 +61,9 @@ h1{
 }
 
 .color{
-    width: 100px;
-    height: 100px;
-    padding: 10px;
+    width: 75px;
+    height: 75px;
+    padding: 5px;
     
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);

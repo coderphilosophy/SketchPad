@@ -9,7 +9,7 @@ let color = document.querySelector('.color');
 
 
 let gridSize = 10;
-let length = 750 / gridSize;
+let length = 600 / gridSize;
 let colourChoice = 'blue';
 let mouse = false;
 let currentSize = gridSize;
@@ -25,7 +25,7 @@ reset.onclick = () => resetGrid();
 
 input.addEventListener('input', function(e){
     gridSize = e.target.value;
-    length = 750 / gridSize;
+    length = 600 / gridSize;
     currentSize = gridSize;
     gridDimensions.textContent = `${gridSize} x ${gridSize}`;
     clearGrid();
@@ -98,7 +98,7 @@ function clearGrid(){
 
 function resetGrid(){
     clearGrid();
-    createGrid(currentSize, 750/currentSize);
+    createGrid(currentSize, 600/currentSize);
 }
 
 function changeColor(e){
@@ -121,7 +121,7 @@ function changeColor(e){
 }
 
 window.onload = () => {
-    createGrid(10, 75);
+    createGrid(10, 60);
     gridDimensions.textContent = `${gridSize} x ${gridSize}`;
 }
 
